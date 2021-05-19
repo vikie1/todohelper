@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.github.vikie1.restservice.todolist.ServTodo;
-import io.github.vikie1.restservice.todolist.ToDoList;
 
 @Service
 public class ServDailyProgress {
@@ -18,16 +17,19 @@ public class ServDailyProgress {
     @Autowired
     ServTodo servTodo;
 
-    public void addDailyProgressFromToDo(String id) {
-        List<DailyProgress> progresses = new ArrayList<>();
-        List<ToDoList> toDoLists = servTodo.getAToDo(id);
-        if (!toDoLists.equals(null)) {
-            progresses.add((DailyProgress) toDoLists);
-        } else {
-            return ;
-        }
-        progressRepo.saveAll(progresses);
-    }
+    // public void addDailyProgressFromToDo(String id) {
+    //     List<ToDoList> toDoLists = servTodo.getAToDo(id);
+    //     List<DailyProgress> progresses = (List) toDoLists;
+    //     if (!toDoLists.equals(null)) {//
+    //     // //     //progresses.addAll((ArrayList) toDoLists);
+    //     // //     progresses = 
+    //     // //     progressRepo.saveAll(progresses);f(toDoLists);
+    //     // progresses.addAll(ToDoList extends <DailyProgress>)
+    //     } else {
+    //         return ;
+    //     }
+    //     progressRepo.saveAll(progresses);
+    // }
 
     public void addMiscallenousProgress(DailyProgress progress){
         progressRepo.save(progress);

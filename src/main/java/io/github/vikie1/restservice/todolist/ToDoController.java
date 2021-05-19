@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.vikie1.restservice.progress.daily.DailyProgress;
 import io.github.vikie1.restservice.progress.daily.ServDailyProgress;
 
 
@@ -37,8 +38,8 @@ public class ToDoController {
     
     //delete a to do and update it as progress
     @RequestMapping(value="/todolist/{id}", method=RequestMethod.DELETE)//DONT USE THIS FOR NOW
-    public void requestMethodName(@PathVariable String id) {
-        servProgress.addDailyProgressFromToDo(id);
+    public void requestMethodName(@PathVariable String id, @RequestBody DailyProgress progress) {
+        servProgress.addMiscallenousProgress(progress);
         servTodo.deleteToDo(id);
     }
     

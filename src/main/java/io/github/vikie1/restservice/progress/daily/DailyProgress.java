@@ -5,46 +5,48 @@ import javax.persistence.Id;
 
 @Entity
 public class DailyProgress {
-    
-    //update the progress
-    public DailyProgress(String itemLearnt, String duration){
+
+    // Constructor for creating lists
+    public DailyProgress(String name, String time) {
         super();
-        this.itemLearnt = itemLearnt;
-        this.duration = duration;
+        this.time = time;
+        this.name = name;
     }
 
-    //get progress
-    public DailyProgress() {}
+    // Constructor for reading lists
+    public DailyProgress() {
+    }
+
+    private String name;
 
     @Id
-    String itemLearnt;
-    String duration;
+    private String time;
 
     /**
-     * @param duration the duration to set
+     * @return the name
      */
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param itemLearnt the itemLearnt to set
+     * @return the time
      */
-    public void setItemLearnt(String itemLearnt) {
-        this.itemLearnt = itemLearnt;
+    public String getTime() {
+        return time;
     }
 
     /**
-     * @return the duration
+     * @param name the name to set
      */
-    public String getDuration() {
-        return duration;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * @return the itemLearnt
+     * @param time the time to set
      */
-    public String getItemLearnt() {
-        return itemLearnt;
+    public void setTime(String time) {
+        this.time = time;
     }
 }
